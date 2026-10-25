@@ -6,6 +6,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 RUN useradd --create-home medcore && chown -R medcore /app
 USER medcore
-EXPOSE 8000
+EXPOSE 10000
 # Migrations run on start so a fresh database is usable immediately.
-CMD ["sh","-c","python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn medcore.wsgi:application --bind 0.0.0.0:8000 --workers 3"]
+CMD ["sh","-c","python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn medcore.wsgi:application --bind 0.0.0.0:${PORT:-10000} --workers 3"]
