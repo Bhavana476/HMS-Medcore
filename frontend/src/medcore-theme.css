@@ -1,0 +1,125 @@
+/* MedCore's shared account-page visual language. Layout remains owned by each module. */
+:root{
+  --ink:#1c2c68;--soft-ink:#697fa5;--stroke:#e0e9f7;--surface:#fff;
+  --page:#f0f6ff;--accent:#5260dc;--tint:#edf3ff;--field:#f7faff;
+  --brand-gradient:linear-gradient(115deg,#6268e8,#485bd4);
+  --care-shadow:0 8px 28px #466ca00c;
+}
+body{background:var(--page);color:var(--ink);font-family:'Segoe UI',Arial,sans-serif}
+.app{background:radial-gradient(ellipse at 85% 0%,#e0edff,transparent 55%),linear-gradient(125deg,#fafdff,#eff5ff);color:var(--ink)}
+.app main{min-width:0}
+.sidebar{background:linear-gradient(165deg,#fff 10%,#f2f7ff 72%,#e4eeff);border-right:1px solid var(--stroke);box-shadow:4px 0 30px #344e8807;color:var(--ink)}
+.brand,.brand-copy strong{color:var(--ink)}
+.brand-mark,.public-brand span{background:linear-gradient(140deg,#99a5ff,#6978ee);color:#fff!important;border-radius:14px 14px 19px 19px;box-shadow:0 5px 13px #5c71d51a;transform:none}
+.brand-copy em,.public-brand small{color:#6e80ba}.brand-copy small{color:var(--soft-ink);font-weight:400}
+.role-pill{color:#6379a5;letter-spacing:.09em}
+.sidebar button{color:#52678f;border-radius:11px;font-weight:500}
+.sidebar button svg{color:#6f88c0}
+.sidebar button:hover{background:#e8efff;color:#354caf;box-shadow:none}
+.sidebar button.active{background:var(--brand-gradient);color:#fff;box-shadow:0 6px 15px #5364d527}
+.sidebar button.active svg{color:#fff}
+.sidebar .logout{border-color:var(--stroke);color:#a74663!important}.sidebar .logout svg{color:inherit}
+.topbar{background:#ffffffd9;border-color:var(--stroke);backdrop-filter:blur(16px)}
+.top-search{background:var(--field);border-color:var(--stroke);border-radius:11px;color:#7c8fb5}
+.top-search input{background:transparent;color:var(--ink)}
+.profile-chip,.icon-button{color:#536b99}.profile-avatar{background:var(--brand-gradient)}
+.icon-button:hover{background:var(--tint)}
+.page-heading h1,.dashboard-greeting strong,.panel h2,.section-intro h2{color:var(--ink);letter-spacing:-.5px}
+.page-heading-icon{border-radius:50%;background:linear-gradient(135deg,#dce8ff,#eaf4ff);color:#3985ef}
+.page-heading .muted,.muted,.access-note,.dashboard-greeting small{color:var(--soft-ink)}
+.panel,.rail-panel,.quick-access,.doctor-profile-card,.document-card,.portal-details,.beds-summary{background:var(--surface);border-color:var(--stroke);border-radius:17px;box-shadow:var(--care-shadow)}
+.panel{padding:22px}.panel h2{margin-bottom:10px}
+.app .card,.app .dashboard-metric{background:linear-gradient(125deg,var(--surface),var(--field));border:1px solid var(--stroke);border-radius:15px;box-shadow:var(--care-shadow)}
+.app .card .icon,.app .metric-icon{background:linear-gradient(135deg,#e0eaff,#ebf4ff);color:#4d75dc;border-radius:50%}
+.app .card strong,.app .metric-copy strong{color:var(--ink)}
+.app .metric-title,.app .card .muted{color:#536990}.metric-copy small{color:var(--soft-ink)}
+.dashboard-metric:hover{border-color:#b6c8f1;box-shadow:0 10px 24px #4a66a51a}
+.metric-selected{outline-color:var(--accent)}.metric-arrow{background:var(--tint);color:var(--accent)}
+.primary,.auth-card button:not(.text-button){background:var(--brand-gradient);border-radius:10px;box-shadow:0 4px 12px #5260dc1c;color:#fff}
+.primary:hover,.auth-card button:not(.text-button):hover{background:linear-gradient(115deg,#535cd5,#3e50c7);box-shadow:0 5px 15px #5260dc30}
+.print,.refresh,.workflow-row button,.filter-summary button{background:var(--tint);color:#4a60b2;border:1px solid #d8e3f8;border-radius:9px}
+.danger{border-radius:9px;background:#fff0f3;color:#b73958}
+input,select,textarea{background:var(--field);border-color:var(--stroke);border-radius:10px;color:var(--ink);accent-color:var(--accent)}
+input::placeholder,textarea::placeholder{color:#8395b5}
+input:focus,select:focus,textarea:focus{outline:3px solid #6687ef20;outline-offset:0;border-color:#7594ec}
+button:focus-visible,a:focus-visible{outline:3px solid #7397ed;outline-offset:3px}
+.toolbar input,.toolbar select,.live-form input,.live-form select,.live-form textarea,.account-form input,.account-form select{background:var(--field);border-color:var(--stroke)}
+.live-form,.profile-detail{background:var(--field);border-color:var(--stroke);border-radius:14px}
+.live-form input[type=file]::file-selector-button{background:#e7edff;color:#4a5fb3;border-radius:7px}
+.table-wrap{border-color:var(--stroke);border-radius:12px}
+th{background:#edf2ff;color:#405786;border-color:var(--stroke);padding-top:15px;padding-bottom:15px}
+td{color:#4a6086;border-color:#edf1f9}tbody tr:hover{background:var(--field)}
+.table-pagination button,.patient-pagination button,.messages-panel .table-footer button{background:var(--field);border-color:var(--stroke);color:#526ba0;border-radius:8px}
+.table-pagination button.selected{background:var(--brand-gradient);border-color:var(--accent);color:white}
+.status-grid b{background:var(--field);color:#50678d;border-radius:10px}
+.bar-row i,.beds-progress i{background:linear-gradient(90deg,#6174e5,#96b7f4)}
+.beds-summary{color:var(--ink)}.beds-summary-icon{background:var(--tint);color:#5676ce;border-radius:50%}.beds-progress{background:#e7edfb}
+.quick-actions button{background:var(--field);border-color:var(--stroke);color:#4b6294;border-radius:10px;min-height:39px;white-space:normal}
+.quick-actions button:hover{background:var(--tint);border-color:#bacbf0}.quick-actions svg{color:#687fd3}
+.date-chip{background:var(--surface);border-color:var(--stroke);color:#566d99;border-radius:12px}
+.rail-icon.cyan,.rail-icon.violet{background:var(--tint);color:#6379d5}.activity-item,.upcoming-item{border-color:var(--stroke)}
+.upcoming-panel{background:var(--surface)}.upcoming-item{color:var(--ink)}.upcoming-item>span:first-child{color:#667dbe}
+.wellness-panel{background:linear-gradient(120deg,#ecf5ff,#e0eaff 70%,#d9ddff);border:1px solid var(--stroke);border-radius:16px}
+.command-hero{background:linear-gradient(90deg,#eff5ff 0%,#eaf2ff 60%,#dceaff);border-color:#dbe5f8;border-radius:17px;height:180px;padding:24px;color:var(--ink)}
+.command-hero:before{background:#cbdcff70}.hero-copy h1{color:var(--ink);font-size:27px}.hero-copy p,.hero-points{color:#667fa6}.hero-script{display:none}.hero-points span:first-letter{color:#7d94d0}
+.dashboard-banner,.care-workspace-heading{position:relative;overflow:hidden;border:1px solid var(--stroke);border-radius:17px;background:linear-gradient(105deg,#fff 25%,#eef4ff 80%,#dfeaff);padding:24px;color:var(--ink)}
+.dashboard-banner h2{color:var(--ink);font-size:27px}.dashboard-banner span{color:#637ab3}.dashboard-banner p{color:var(--soft-ink);max-width:650px;line-height:1.6}
+.care-workspace-heading{margin-top:24px;margin-bottom:20px;min-height:112px}.care-workspace-heading .page-heading-icon{flex-shrink:0}
+.calendar-strip button,.calendar-controls button{background:var(--field);color:#526cb2;border-color:var(--stroke);border-radius:9px}
+.calendar-grid,.calendar-weekdays{background:var(--stroke);border-color:var(--stroke)}
+.calendar-weekdays div{background:var(--tint);color:#5a6e9a}.calendar-cell{background:var(--surface);color:var(--ink)}
+.calendar-cell:hover,.empty-cell,.empty-cell:hover{background:var(--field)}
+.live-list-row,.account-list div{background:var(--field);border-color:var(--stroke);border-radius:11px}
+.live-form .form-field,.account-list span,.live-list-row span{color:var(--soft-ink)}
+.calendar-cell.today{background:#f0f4ff;box-shadow:inset 0 0 0 2px #8198ea}.today .day-number{background:var(--accent)}.event-count{color:#6079bf}
+.department-chips button,.slot-chips button,.slot-chips span{border-color:var(--stroke);background:var(--surface);color:#596f9e;border-radius:10px}
+.department-chips button.selected{background:var(--brand-gradient);color:white;border-color:var(--accent)}
+.doctor-avatar{background:linear-gradient(135deg,#e1eaff,#ebf4ff);color:#6078d0;border-radius:50%}.doctor-specialty{color:#667dc0}
+.doctor-profile-card h3,.document-card h3{color:var(--ink)}.doctor-profile-card dt{color:var(--soft-ink)}
+.messaging-layout,.preferences-form label{border-color:var(--stroke);border-radius:14px}.conversation-list{background:var(--field);border-color:var(--stroke)}
+.conversation-list button{color:#536b98;border-radius:10px}.conversation-list button.selected{background:#e5ecff;color:#455bb2}
+.conversation-heading{border-color:var(--stroke)}.message-bubble{background:var(--field);border-color:var(--stroke);border-radius:14px}.message-bubble.own{background:#edf0ff;border-color:#dce2ff}
+.preferences-form input{accent-color:var(--accent)}.payment-list article{border-color:var(--stroke)}
+/* Public pages and password recovery use the same clinical photo as signup. */
+.public-site{background:linear-gradient(125deg,#fff,#f0f6ff 60%,#eaf3ff);color:var(--ink)}
+.public-nav{max-width:1360px;padding-top:28px;padding-bottom:24px}.public-brand{color:var(--ink);font-size:28px}.public-nav nav a,.public-actions a{color:#526b9c}
+.public-hero{max-width:1360px;gap:50px;padding-top:46px;padding-bottom:60px}.public-hero h1{color:var(--ink);font-size:clamp(38px,4.5vw,62px);font-weight:650;letter-spacing:-1.8px;line-height:1.13}.public-hero p{color:var(--soft-ink);line-height:1.8}.eyebrow{color:#6c81bb}
+.care-illustration{min-height:410px;border-radius:28px;background:linear-gradient(180deg,#edf5ff08,#dceaff22),url('./assets/signup-clinic.png') center 60%/cover;border:1px solid #fff;box-shadow:0 18px 45px #5b7fad1a}
+.care-cross{display:none}.care-illustration svg{color:#7fa8ef;opacity:.35}.illustration-note{background:#ffffffed;border-color:#e1e9f8;border-radius:14px;backdrop-filter:blur(12px);color:#7487aa}.illustration-note b{color:#324b85}
+.public-section h2{color:var(--ink);font-weight:650}.public-site .doctor-profile-card{box-shadow:0 8px 24px #52709d08}.portal-benefits{background:#e8efff;border:1px solid #dce6f8;border-radius:20px}.portal-benefits span{color:#7589d0}.portal-benefits h3{color:var(--ink)}.portal-benefits p{color:var(--soft-ink)}
+.public-footer{background:#e2ebfc;border-top:1px solid #d5e1f6;color:#5e759f}.public-footer strong{color:var(--ink)}.public-footer button{background:var(--surface);border-color:#c8d7f3;color:#4e65ab;border-radius:10px}
+.auth{background:linear-gradient(90deg,#eef5fff5 20%,#edf5ffbb 60%,#edf5ff22),url('./assets/signup-clinic.png') right center/cover;min-height:100svh}.auth-card{background:#ffffffed;border:1px solid #fff;border-radius:18px;box-shadow:0 18px 50px #527caf20;color:var(--ink)}.auth-card .logo{color:var(--ink)}.auth-card label{color:#536b98}.auth-card .text-button{color:#5a73b0;background:transparent}.auth-card input{background:var(--field);border-color:var(--stroke)}
+/* Preserve semantic success, warning and error colors throughout care workflows. */
+.record-available,.record-paid,.record-confirmed,.record-completed{background:#e7f6ef;color:#277b60}.record-pending,.record-occupied{background:#fff3e1;color:#966014}.record-reserved,.record-cancelled,.record-no-show{background:#fff0f3;color:#b33d62}
+/* A corresponding navy palette for the existing optional dark mode. */
+body.dark{--ink:#e0e8ff;--soft-ink:#a1b2d1;--stroke:#304063;--surface:#192640;--field:#1d2d49;--tint:#273859;--page:#111d32;color:var(--ink);background:var(--page)}
+body.dark .app{background:radial-gradient(ellipse at 80% 0,#243554,transparent 60%),#111d32}
+body.dark .sidebar{background:linear-gradient(160deg,#1b2844,#14213a);border-color:var(--stroke)}
+body.dark .sidebar button{color:#b6c6e4}body.dark .sidebar button:hover{background:#2a3a5c}body.dark .sidebar button.active{background:var(--brand-gradient);color:#fff}body.dark .role-pill,body.dark .brand-copy small{color:#a1b2d1}
+body.dark .topbar{background:#17243ded;border-color:var(--stroke)}body.dark .profile-chip,body.dark .icon-button{color:#b4c4e3}
+body.dark .panel,body.dark .rail-panel,body.dark .quick-access,body.dark .doctor-profile-card,body.dark .document-card,body.dark .portal-details,body.dark .beds-summary,body.dark .date-chip{background:var(--surface);border-color:var(--stroke);color:var(--ink)}
+body.dark .app .card,body.dark .app .dashboard-metric{background:linear-gradient(125deg,var(--surface),var(--field));border-color:var(--stroke)}
+body.dark .app .card .icon,body.dark .app .metric-icon,body.dark .page-heading-icon{background:#2b3e66;color:#a7bdff}
+body.dark .app .metric-title,body.dark .app .card .muted{color:#b4c6e7}
+body.dark .command-hero,body.dark .dashboard-banner,body.dark .care-workspace-heading{background:linear-gradient(110deg,#1c2c49,#273b60);border-color:var(--stroke)}
+body.dark .hero-copy h1,body.dark .dashboard-banner h2{color:var(--ink)}body.dark .hero-copy p,body.dark .hero-points,body.dark .dashboard-banner p{color:var(--soft-ink)}
+body.dark th{background:#243452;color:#c7d5f4}body.dark td{color:#b8c8e5;border-color:var(--stroke)}body.dark tbody tr:hover{background:var(--field)}
+body.dark input,body.dark select,body.dark textarea,body.dark .live-form,body.dark .profile-detail,body.dark .top-search{background:var(--field);color:var(--ink);border-color:var(--stroke)}
+body.dark .top-search input{background:transparent}body.dark .quick-actions button,body.dark .refresh,body.dark .print,body.dark .workflow-row button{background:var(--tint);color:#b9caff;border-color:var(--stroke)}
+body.dark .conversation-list,body.dark .message-bubble{background:var(--field);border-color:var(--stroke)}body.dark .conversation-list button.selected,body.dark .message-bubble.own{background:#2c3c68;border-color:#40537c;color:#d5e0ff}
+body.dark .calendar-cell.today{background:#2c3b63}body.dark .status-grid b{background:var(--field);color:#c3d1ed}
+body.dark .calendar-grid,body.dark .calendar-weekdays{background:var(--stroke);border-color:var(--stroke)}
+body.dark .calendar-weekdays div,body.dark .empty-cell{background:var(--field);color:var(--soft-ink)}
+body.dark .calendar-cell,body.dark .calendar-controls button{background:var(--surface);color:var(--ink);border-color:var(--stroke)}
+body.dark .calendar-cell.today{background:#2c3b63}body.dark .calendar-cell:hover{background:var(--tint)}
+body.dark .live-list-row,body.dark .account-list div{background:var(--field);border-color:var(--stroke)}
+body.dark .wellness-panel{background:linear-gradient(120deg,#243657,#354575);color:#d6e0ff}
+body.dark .record-available,body.dark .record-paid,body.dark .record-confirmed,body.dark .record-completed{background:#1c443e;color:#92dbbd}body.dark .record-pending,body.dark .record-occupied{background:#493d2a;color:#f0cd8d}body.dark .record-reserved,body.dark .record-cancelled,body.dark .record-no-show{background:#482d42;color:#f1aac2}
+/* Keep signed-out pages light even when a previous workspace used dark mode. */
+body.dark .public-site,body.dark .auth{--ink:#1c2c68;--soft-ink:#697fa5;--stroke:#e0e9f7;--surface:#fff;--field:#f7faff;--tint:#edf3ff}
+body.dark .public-site .doctor-profile-card,body.dark .auth-card{background:#fff;color:#1c2c68;border-color:#e0e9f7}body.dark .public-site input,body.dark .public-site select,body.dark .auth-card input{background:#f7faff;color:#1c2c68;border-color:#e0e9f7}body.dark .auth-card label{color:#536b98}
+body.dark .account-page input{background:linear-gradient(100deg,#fafcfe,#f5f9fe);color:#25376a;border-color:#e2eaf6}
+body.dark .account-page input:focus{border-color:#6687ef}
+@media(max-width:1050px){.public-hero{gap:30px}.care-illustration{min-height:350px}.panel{padding:18px}}
+@media(max-width:680px){.sidebar{border-right:0;border-bottom:1px solid var(--stroke)}.sidebar-nav button{border-radius:10px}.panel{padding:16px;border-radius:14px}.public-nav{padding:18px}.public-brand{font-size:22px}.public-hero{padding:28px 22px}.public-hero h1{font-size:40px}.care-illustration{min-height:300px;border-radius:20px}.public-section h2{font-size:25px}.care-workspace-heading,.dashboard-banner{padding:19px}.care-workspace-heading h1,.dashboard-banner h2{font-size:22px}.command-hero{height:165px;padding:18px}.hero-copy h1{font-size:22px}.hero-art{opacity:.3}.hero-copy{max-width:90%}.auth{padding:20px}.auth-card{width:min(100%,440px);padding:28px}.public-footer{padding:25px 22px}}
+@media print{.app,.public-site{background:#fff}.panel,.card,.rail-panel{box-shadow:none}.command-hero{background:#fff}.sidebar{display:none}}

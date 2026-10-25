@@ -1,0 +1,19 @@
+{
+  "EMAIL_BACKEND": "django.core.mail.backends.filebased.EmailBackend",
+  "EMAIL_HOST": "",
+  "EMAIL_PORT": "587",
+  "EMAIL_USE_TLS": "True",
+  "EMAIL_HOST_USER": "",
+  "EMAIL_HOST_PASSWORD": "",
+  "DEFAULT_FROM_EMAIL": "MedCore <noreply@localhost>",
+  "FRONTEND_URL": "http://localhost:5173",
+  "PAYMENTS_ENABLED": "False",
+  "PAYMENT_MODE": "test",
+  "RAZORPAY_KEY_ID": "",
+  "RAZORPAY_KEY_SECRET": "",
+  "RAZORPAY_WEBHOOK_SECRET": "",
+  "SMS_ENABLED": "False",
+  "TWILIO_ACCOUNT_SID": "",
+  "TWILIO_AUTH_TOKEN": "",
+  "TWILIO_FROM_NUMBER": ""
+}

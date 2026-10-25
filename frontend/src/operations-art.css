@@ -1,0 +1,89 @@
+﻿/* Original SVG artwork (no third-party images) for the operations insights section. */
+:root{
+  --art-ecg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='80' viewBox='0 0 400 80'%3E%3Cpath d='M0 40h90l12-22 16 46 18-60 14 36h70l10-14 12 14h158' fill='none' stroke='%23ffffff' stroke-opacity='.35' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --art-cross:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M24 18h8v6h6v8h-6v6h-8v-6h-6v-8h6z' fill='%233b6fd8' fill-opacity='.06'/%3E%3C/svg%3E");
+  --art-dots:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Ccircle cx='2' cy='2' r='1.4' fill='%23ffffff' fill-opacity='.28'/%3E%3C/svg%3E");
+}
+
+/* Photo background: bright clinic with stethoscope, softened so text stays readable. */
+.ops-insights{
+  position:relative;overflow:hidden;
+  background:
+    var(--art-cross),
+    linear-gradient(115deg,rgba(255,255,255,.93) 0%,rgba(244,248,255,.82) 45%,rgba(232,242,255,.55) 100%),
+    url('./assets/signup-clinic.png') center 62%/cover no-repeat;
+  border:1px solid rgba(59,111,216,.14);
+}
+/* Glowing heart photo bleeds into the activity panel corner. */
+.ops-insights .ops-grid>div:nth-child(4){
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.94) 35%,rgba(255,255,255,.7)),
+    url('./assets/wellness-heart.png') right -60px bottom -30px/340px auto no-repeat;
+}
+.ops-insights .ops-grid>div:nth-child(2){
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.78)),
+    url('./assets/hospital-hero.png') center bottom/cover no-repeat;
+}
+.ops-insights::before{ /* soft glow blobs */
+  content:"";position:absolute;inset:-120px -80px auto auto;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(91,140,255,.22),transparent 65%);pointer-events:none;
+}
+.ops-insights::after{
+  content:"";position:absolute;inset:auto auto -140px -100px;width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(circle,rgba(52,199,163,.18),transparent 65%);pointer-events:none;
+}
+.ops-insights>*{position:relative;z-index:1}
+
+/* KPI cards: each tone gets its own gradient, ECG line and illustration. */
+.ops-insights .ops-kpi{
+  position:relative;overflow:hidden;min-height:118px;border:none;color:#fff;
+  box-shadow:0 10px 24px -12px rgba(30,60,140,.55);transition:transform .18s ease,box-shadow .18s ease;
+  background-repeat:no-repeat;
+}
+.ops-insights button.ops-kpi:hover{transform:translateY(-3px);box-shadow:0 16px 30px -12px rgba(30,60,140,.6)}
+.ops-insights .ops-kpi .muted{color:rgba(255,255,255,.88);font-weight:600;letter-spacing:.02em}
+.ops-insights .ops-kpi strong{font-size:1.9rem;text-shadow:0 2px 8px rgba(0,0,0,.15)}
+.ops-insights .ops-kpi::before{content:"";position:absolute;inset:0;background:var(--art-dots);opacity:.6}
+.ops-insights .ops-kpi::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:44px;background:var(--art-ecg) center/auto 100% repeat-x}
+.ops-insights .ops-kpi>*{position:relative;z-index:1}
+.ops-insights .ops-kpi:nth-child(1){background-color:#3b6fd8;background-image:linear-gradient(135deg,#4f7cff,#2c4fb8),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='20' r='9' fill='%23fff' fill-opacity='.22'/%3E%3Cpath d='M8 54c0-10 7-18 16-18s16 8 16 18z' fill='%23fff' fill-opacity='.22'/%3E%3Ccircle cx='44' cy='24' r='7' fill='%23fff' fill-opacity='.15'/%3E%3Cpath d='M32 54c1-8 6-14 12-14s12 6 12 14z' fill='%23fff' fill-opacity='.15'/%3E%3C/svg%3E")}
+.ops-insights .ops-kpi:nth-child(2){background-image:linear-gradient(135deg,#1fb89a,#0f7f72)}
+.ops-insights .ops-kpi:nth-child(3){background-image:linear-gradient(135deg,#8a6cff,#5a3fd1)}
+.ops-insights .ops-kpi:nth-child(4){background-image:linear-gradient(135deg,#ff8a65,#e0533c)}
+/* Corner illustrations (patients, rupee coin, bed, stethoscope). The label spans the card so the icon sits in its corner, clear of the text. */
+.ops-insights .ops-kpis .ops-kpi>span.muted{display:block;width:100%;padding-right:60px;box-sizing:border-box}
+.ops-insights .ops-kpi:nth-child(n) strong::after{content:none}
+.ops-insights .ops-kpis .ops-kpi>span.muted::after{
+  content:"";position:absolute;right:-6px;top:-4px;width:64px;height:64px;opacity:.9;background:center/contain no-repeat;
+}
+.ops-insights .ops-kpi:nth-child(1)>span.muted::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23fff' stroke-opacity='.55' stroke-width='3' stroke-linecap='round'%3E%3Ccircle cx='24' cy='20' r='8'/%3E%3Cpath d='M10 52c0-9 6-16 14-16s14 7 14 16'/%3E%3Ccircle cx='44' cy='24' r='6'/%3E%3Cpath d='M36 52c1-7 4-12 8-12s8 5 9 12'/%3E%3C/svg%3E")}
+.ops-insights .ops-kpi:nth-child(2)>span.muted::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23fff' stroke-opacity='.55' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='32' cy='32' r='22'/%3E%3Cpath d='M24 22h16M24 30h16M28 22c8 0 8 8 0 8h-4l12 14'/%3E%3C/svg%3E")}
+.ops-insights .ops-kpi:nth-child(3)>span.muted::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23fff' stroke-opacity='.55' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 16v36M56 36v16M8 44h48M12 30h12a6 6 0 0 1 6 6H12zM30 30h18a8 8 0 0 1 8 8'/%3E%3Ccircle cx='17' cy='24' r='4'/%3E%3C/svg%3E")}
+.ops-insights .ops-kpi:nth-child(4)>span.muted::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23fff' stroke-opacity='.55' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8v14a10 10 0 0 0 20 0V8M12 8h8M32 8h8M26 32v6a12 12 0 0 0 24 0v-4'/%3E%3Ccircle cx='50' cy='28' r='5'/%3E%3C/svg%3E")}
+
+/* Inner cards get a frosted look with an emblem per topic. */
+.ops-insights .ops-grid>div{
+  background:rgba(255,255,255,.72);backdrop-filter:blur(6px);border:1px solid rgba(59,111,216,.12);
+  border-radius:16px;padding:16px 18px;box-shadow:0 6px 18px -14px rgba(30,60,140,.5);
+  background-repeat:no-repeat;background-position:right 12px top 12px;background-size:42px;
+}
+.ops-insights .ops-grid>div h3{display:flex;align-items:center;gap:8px;padding-right:46px}
+.ops-insights .ops-grid>div h3::before{content:"";width:6px;height:18px;border-radius:3px;background:linear-gradient(#4f7cff,#1fb89a)}
+.ops-insights .ops-grid>div:nth-child(1){background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%233b6fd8' stroke-opacity='.35' stroke-width='2.5' stroke-linecap='round'%3E%3Crect x='6' y='10' width='36' height='32' rx='4'/%3E%3Cpath d='M6 18h36M16 6v8M32 6v8M14 30l6 5 12-11'/%3E%3C/svg%3E")}
+.ops-insights .ops-grid>div:nth-child(3){background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%23e0533c' stroke-opacity='.4' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m18 30 12-12M13 35a7 7 0 0 1 0-10l12-12a7 7 0 0 1 10 10L23 35a7 7 0 0 1-10 0Z'/%3E%3C/svg%3E")}
+
+/* Empty chart state gets an illustration instead of a blank box. */
+.ops-insights .ops-bar{fill:url(#opsBarGradient)}
+.ops-chart-empty{display:grid;place-items:center;gap:6px;min-height:150px;border-radius:12px;color:#5b6b8c;text-align:center;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='90' viewBox='0 0 220 90' fill='none' stroke='%233b6fd8' stroke-opacity='.25' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0 60h50l10-22 14 40 16-58 12 30h40l8-10 10 10h60'/%3E%3C/svg%3E") center 30%/220px no-repeat}
+.ops-heatmap div{border:1px solid rgba(59,111,216,.12);transition:transform .15s}
+.ops-heatmap div:hover{transform:scale(1.03)}
+.ops-list li{display:flex;flex-wrap:wrap;gap:4px}
+
+/* Dark mode: the glowing heart photo suits a dark background. */
+body.dark .ops-insights{background:linear-gradient(100deg,rgba(10,16,30,.96) 30%,rgba(10,20,34,.6)),url('./assets/wellness-heart.png') right center/cover no-repeat;border-color:rgba(120,150,220,.2)}
+body.dark .ops-insights .ops-grid>div,body.dark .ops-insights .ops-grid>div:nth-child(2),body.dark .ops-insights .ops-grid>div:nth-child(4){background:rgba(20,28,46,.78);border-color:rgba(120,150,220,.18)}
+body.dark .ops-chart-empty{color:#a9b6d3}
+
+@media (prefers-reduced-motion:reduce){.ops-insights .ops-kpi,.ops-heatmap div{transition:none}}

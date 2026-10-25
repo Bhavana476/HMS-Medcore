@@ -1,0 +1,52 @@
+/* Final visual polish layer: typography, motion and depth. Loaded last; safe to remove. */
+:root{
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --lift-shadow:0 14px 34px #3f5fa01f,0 2px 6px #3f5fa00d;
+  --care-shadow:0 1px 2px #2a46800a,0 8px 24px #466ca010;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-feature-settings:'cv11','ss01'}
+h1,h2,h3{letter-spacing:-.02em}
+::selection{background:#5260dc33}
+
+/* Gentle entrance for each page */
+.app main>*{animation:mc-rise .38s var(--ease) both}
+@keyframes mc-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* Cards and panels respond to the pointer */
+.panel,.rail-panel,.doctor-profile-card,.document-card,.app .card,.app .dashboard-metric{transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease)}
+.app .card:hover,.app .dashboard-metric:hover,.doctor-profile-card:hover,.document-card:hover{transform:translateY(-2px);box-shadow:var(--lift-shadow)}
+.app .metric-copy strong,.app .card strong{font-variant-numeric:tabular-nums;font-weight:700}
+
+/* Buttons */
+button,.primary,.print,.refresh,.danger{transition:background .18s var(--ease),box-shadow .18s var(--ease),transform .12s var(--ease),color .18s}
+.primary:active,.print:active,.refresh:active,.danger:active,.quick-actions button:active{transform:scale(.97)}
+.sidebar button{transition:background .18s var(--ease),color .18s}
+
+/* Inputs */
+input,select,textarea{transition:border-color .15s,box-shadow .15s,background .15s}
+input:focus,select:focus,textarea:focus{outline:none;box-shadow:0 0 0 4px #5260dc1f;border-color:#7594ec;background:var(--surface)}
+
+/* Tables */
+th{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+tbody tr{transition:background .12s}
+td{font-variant-numeric:tabular-nums}
+
+/* Status pills read as badges */
+.record-available,.record-paid,.record-confirmed,.record-completed,.record-pending,.record-occupied,.record-reserved,.record-cancelled,.record-no-show{border-radius:999px;font-weight:600;font-size:12px;letter-spacing:.02em}
+
+/* Scrollbars */
+*{scrollbar-width:thin;scrollbar-color:#c3d0ec transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#c3d0ec;border-radius:10px;border:3px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background-color:#9fb2dd}
+body.dark *{scrollbar-color:#3a4c72 transparent}
+body.dark ::-webkit-scrollbar-thumb{background-color:#3a4c72}
+
+/* Sign-in card */
+.auth-card{backdrop-filter:blur(14px);animation:mc-rise .45s var(--ease) both}
+
+body.dark{--lift-shadow:0 14px 34px #0006}
+
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important}
+}

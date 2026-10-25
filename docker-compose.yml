@@ -1,0 +1,65 @@
+# Full stack: PostgreSQL, Redis, Django API, React frontend, Nginx edge with TLS.
+# 1. cp .env.example .env and fill in secrets
+# 2. Put TLS files in nginx/certs/ (see DEPLOYMENT.md; a self-signed pair works locally)
+# 3. docker compose up --build   ->  https://localhost
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+
+  api:
+    build: ./backend
+    env_file: .env
+    environment:
+      DJANGO_SETTINGS_MODULE: medcore.production
+      TRUST_PROXY_HTTPS: "True"
+      TRUST_PROXY_HEADERS: "True"
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_started}
+    restart: unless-stopped
+
+  scheduler:
+    build: ./backend
+    env_file: .env
+    environment:
+      DJANGO_SETTINGS_MODULE: medcore.production
+    depends_on: [api]
+    # Reminders every 15 minutes (24h and 1h windows); pharmacy expiry report daily.
+    command: >
+      sh -c "while true; do
+        python manage.py send_appointment_reminders --email --sms;
+        if [ \"$$(date +%H%M)\" -lt 0015 ]; then python manage.py pharmacy_expiry_report --email; fi;
+        sleep 900; done"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args: {VITE_API_URL: /api}
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/certs:/etc/nginx/certs:ro
+    depends_on: [api, frontend]
+    restart: unless-stopped
+
+volumes:
+  pgdata:
